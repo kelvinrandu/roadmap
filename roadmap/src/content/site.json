@@ -1,0 +1,43 @@
+{
+  "author": "Kamran Ahmed",
+  "title": "Roadmaps to becoming a modern developer",
+  "name": "roadmap.sh",
+  "description": "Community driven roadmaps, articles, guides, quizzes, tips and resources for developers to learn from, identify their career paths, know what they don't know, find out the knowledge gaps, learn and improve.",
+  "twitter": "kelvin-randu",
+  "facebook": "kelvinrandu",
+  "logo": "/brand.png",
+  "logoSquare": "/brand-square.png",
+  "url": {
+    "web": "http://localhost:3000/",
+    "twitter": "https://twitter.com/kelvin-randu",
+    "youtube": "https://www.youtube.com/watch?v=mTz0GXj8NN0&t=2721s",
+    "repo": "https://github.com/kelvinrandu/roadmap"
+
+  },
+  "keywords": [
+    "roadmap",
+    "developer roadmaps",
+    "developer roadmap",
+    "frontend developer",
+    "frontend developer roadmap",
+    "frontend",
+    "frontend roadmap",
+    "backend",
+    "backend developer",
+    "backend developer roadmap",
+    "devops",
+    "devops roadmap",
+    "fullstack developer roadmap",
+    "guide to becoming a developer",
+    "sre roadmap",
+    "sre",
+    "operations roadmap",
+    "qa roadmap",
+    "android roadmap",
+    "android developer roadmap",
+    "react roadmap",
+    "react developer roadmap",
+    "dba roadmap",
+    "postgresql dba roadmap"
+  ]
+}

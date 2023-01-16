@@ -1,0 +1,12 @@
+[
+  {
+    "id": "session-based-authentication",
+    "title": "Session Based Authentication",
+    "description": "Learn what is Session Based Authentication and how to implement it in Node.js",
+    "isNew": true,
+    "type": "textual",
+    "authorUsername": "kelvinrandu",
+    "updatedAt": "2022-11-01T19:59:14.191Z",
+    "createdAt": "2022-11-01T19:59:14.191Z"
+  }
+]
