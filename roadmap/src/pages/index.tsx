@@ -5,7 +5,12 @@ import { GlobalHeader}  from "../components/global-header";
 import styles from '@/styles/Home.module.css'
 import { getAllGuides, GuideType } from "../lib/guide";
 import { getAllVideos, VideoType } from "../lib/video";
+import { DimmedMore } from '../components/dimmed-more';
+import { Footer } from "../components/footer";
+import { LinksListItem } from '../components/links-list-item';
 import Helmet from "../components/helmet";
+import { VideoIcon } from "../components/icons/video-icon";
+import { LinksList } from "../components/links-list";
 import { getFeaturedRoadmaps, RoadmapType } from "../lib/roadmap";
 import { PageWrapper } from "../components/page-wrapper";
 import { Box, Container, Heading, Text } from "@chakra-ui/react";
@@ -54,7 +59,83 @@ export default function Home(props: HomeProps) {
           />
         </Container>
       </Box>
-      
+      <Box bg="white">
+        <Container maxW="container.md">
+          <Box pt="60px" mb={["10px", "15px", "20px"]}>
+            <Heading
+              color="green.500"
+              fontSize={["20px", "20px", "25px"]}
+              mb="5px"
+            >
+              Video Explanations
+            </Heading>
+          </Box>
+
+          <LinksList>
+            {videos.map((video) => (
+              <LinksListItem
+                target={"_blank"}
+                key={video.id}
+                href={video.youtubeLink!}
+                badgeText={
+                  video.isNew
+                    ? `NEW · ${new Date(video.createdAt).toLocaleDateString(
+                        "en-us",
+                        { month: "long" }
+                      )}`
+                    : ""
+                }
+                hideSubtitleOnMobile
+                title={video.title}
+                subtitle={video.duration}
+                icon={
+                  <VideoIcon
+                    style={{
+                      marginRight: "7px",
+                      width: "18px",
+                      height: "18px",
+                      color: "#9c9c9c",
+                    }}
+                  />
+                }
+              />
+            ))}
+            <DimmedMore href="/watch" text={"View all Videos"} />
+          </LinksList>
+        </Container>
+      </Box>
+      <Box pb="80px" bg="white">
+        <Container maxW="container.md" position="relative">
+          <Box pt="40px" mb="20px">
+            <Heading color="green.500" fontSize="25px" mb="5px">
+              Guides
+            </Heading>
+          </Box>
+
+          <LinksList>
+            {guides.map((guide) => (
+              <LinksListItem
+                key={guide.id}
+                href={`/guides/${guide.id}`}
+                title={guide.title}
+                badgeText={
+                  guide.isNew
+                    ? `NEW · ${new Date(guide.createdAt).toLocaleDateString(
+                        "en-us",
+                        { month: "long" }
+                      )}`
+                    : ""
+                }
+                subtitle={`${guide?.type
+                  ?.charAt(0)
+                  .toUpperCase()}${guide?.type?.slice(1)}`}
+              />
+            ))}
+            <DimmedMore href={"/guides"} text="View all Guides" />
+          </LinksList>
+        </Container>
+      </Box>
+       <Footer />
     </PageWrapper>
   );
 }
