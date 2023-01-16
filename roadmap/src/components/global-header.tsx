@@ -50,7 +50,7 @@ function MenuLink(props: MenuLinkProps) {
 function DesktopMenuLinks() {
   return (
     <Stack
-      
+      display={["none", "flex", "flex"]}
       shouldWrapChildren
       isInline
       spacing="15px"
@@ -97,7 +97,7 @@ function MobileMenuLinks() {
         rounded="5px"
         padding={0}
         aria-label={"Menu"}
-        
+        display={["block", "none", "none"]}
         icon={<HamburgerIcon color="white" w="25px" height="25px" />}
         color="white"
         cursor="pointer"
@@ -145,7 +145,7 @@ type GlobalHeaderProps = {
   variant?: "transparent" | "solid";
 };
 
-export   function GlobalHeader(props: GlobalHeaderProps) {
+export function GlobalHeader(props: GlobalHeaderProps) {
   const { variant = "solid" } = props;
 
   return (
@@ -155,7 +155,7 @@ export   function GlobalHeader(props: GlobalHeaderProps) {
           <Box>
             <Link
               w="100%"
-            
+              display="flex"
               href="/"
               alignItems="center"
               color="white"
@@ -166,9 +166,7 @@ export   function GlobalHeader(props: GlobalHeaderProps) {
               {/* <RoadmapLogo
                 style={{ height: "30px", width: "30px", marginRight: "10px" }}
               /> */}
-              <Text 
-             
-              as="span">
+              <Text display={["block", "none", "block"]} as="span">
                 roadmap.sh
               </Text>
             </Link>
