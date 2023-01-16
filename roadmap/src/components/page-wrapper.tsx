@@ -1,9 +1,23 @@
-import React, { Component } from 'react'
+import React from "react";
+import { Box } from "@chakra-ui/react";
 
-export default class PageWrapper extends Component {
-  render() {
-    return (
-      <div>PageWrapper</div>
-    )
-  }
+type PageWrapperProps = {
+  children: React.ReactNode;
+};
+
+export function PageWrapper(props: PageWrapperProps) {
+  const { children } = props;
+
+  return (
+    <Box
+      bgColor="brand.bg"
+      bgImage="url(/bg.jpg)"
+      bgRepeat="no-repeat"
+      bgSize="100%"
+      w="100%"
+      minH="100vh"
+    >
+      {children}
+    </Box>
+  );
 }
