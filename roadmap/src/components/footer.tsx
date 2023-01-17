@@ -122,7 +122,7 @@ export function Footer() {
                 href="/"
               >
                 <Image alt="" h="25px" w="25px" src="/logo.svg" mr="6px" />
-                roadmap.sh
+                roadmap
               </Link>
               <Text as="span" mx="7px">
                 by
@@ -139,7 +139,7 @@ export function Footer() {
                 href={siteConfig.url.twitter}
                 target="_blank"
               >
-                @kamranahmedse
+                @kelvin_randu
               </Link>
             </Flex>
 
@@ -150,7 +150,7 @@ export function Footer() {
 
             <Text fontSize="14px" color="gray.500">
               <Text as="span" mr="10px">
-                &copy; roadmap.sh
+                &copy; codesmiths
               </Text>
               &middot;
               <Link
