@@ -61,7 +61,7 @@ export default function Home(props: HomeProps) {
       </Box>
       <Box  bg="white">
         <Container maxW="container.md">
-          <Box pt="60px" mb={["10px", "15px", "20px"]}>
+          <Box pt="110px" mb={["10px", "15px", "20px"]}>
             <Heading
               color="green.500"
               fontSize={["20px", "20px", "25px"]}
