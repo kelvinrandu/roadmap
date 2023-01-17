@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import { GlobalHeader}  from "../components/global-header";
-import styles from '@/styles/Home.module.css'
+
 import { getAllGuides, GuideType } from "../lib/guide";
 import { getAllVideos, VideoType } from "../lib/video";
 import { DimmedMore } from '../components/dimmed-more';
@@ -59,7 +59,7 @@ export default function Home(props: HomeProps) {
           />
         </Container>
       </Box>
-      <Box bg="white">
+      <Box  bg="white">
         <Container maxW="container.md">
           <Box pt="60px" mb={["10px", "15px", "20px"]}>
             <Heading
@@ -135,7 +135,7 @@ export default function Home(props: HomeProps) {
           </LinksList>
         </Container>
       </Box>
-       <Footer />
+      <Footer />
     </PageWrapper>
   );
 }

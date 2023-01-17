@@ -45,6 +45,7 @@ export function FeaturedRoadmapsList(props: FeaturedRoadmapsListProps) {
       <SimpleGrid
         columns={[1, 2, 3]}
         spacing={["10px", "10px", "15px"]}
+        
         mb="40px"
       >
         <>

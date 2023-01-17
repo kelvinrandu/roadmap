@@ -80,7 +80,7 @@ export function HomeRoadmapItem(props: RoadmapGridItemProps) {
         fontSize={["17px", "17px", "22px"]}
         color={bgColorList[colorIndex]}
         mb="5px"
-        // d="flex"
+        display="flex"
         alignItems="center"
       >
         {title}
