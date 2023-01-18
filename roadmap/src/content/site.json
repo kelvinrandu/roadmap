@@ -1,5 +1,5 @@
 {
-  "author": "Kamran Ahmed",
+  "author": "Kelvinrandu",
   "title": "Roadmaps to becoming a modern developer",
   "name": "roadmap.sh",
   "description": "Community driven roadmaps, articles, guides, quizzes, tips and resources for developers to learn from, identify their career paths, know what they don't know, find out the knowledge gaps, learn and improve.",
@@ -11,8 +11,9 @@
     "web": "http://localhost:3000/",
     "twitter": "https://twitter.com/kelvin-randu",
     "youtube": "https://www.youtube.com/watch?v=mTz0GXj8NN0&t=2721s",
-    "repo": "https://github.com/kelvinrandu/roadmap"
-
+    "repo": "https://github.com/kelvinrandu/roadmap",
+    "repoData": "https://github.com/kelvinrandu/roadmap/tree/master/content",
+    "issue": "https://github.com/kelvinrandu/roadmap/issues/new"
   },
   "keywords": [
     "roadmap",
