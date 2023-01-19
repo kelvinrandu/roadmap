@@ -1,29 +1,38 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import { GlobalHeader}  from "../components/global-header";
+import React, { useEffect, useContext } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import { GlobalHeader } from "../components/global-header";
 
 import { getAllGuides, GuideType } from "../lib/guide";
 import { getAllVideos, VideoType } from "../lib/video";
-import { DimmedMore } from '../components/dimmed-more';
+import { DimmedMore } from "../components/dimmed-more";
 import { Footer } from "../components/footer";
-import { LinksListItem } from '../components/links-list-item';
+import { LinksListItem } from "../components/links-list-item";
 import Helmet from "../components/helmet";
 import { VideoIcon } from "../components/icons/video-icon";
 import { LinksList } from "../components/links-list";
 import { getFeaturedRoadmaps, RoadmapType } from "../lib/roadmap";
 import { PageWrapper } from "../components/page-wrapper";
-import { Box, Container, Heading, Text } from "@chakra-ui/react";
+import { AuthContext } from "../context/AuthContext";
+import Login from "../components/Login";
+import { Center } from "@chakra-ui/layout";
+import { Box, Container, Heading, Text, Flex, Spinner } from "@chakra-ui/react";
 import { FeaturedRoadmapsList } from "../components/home/featured-roadmap-list";
+import Router from "next/router";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 type HomeProps = {
   roadmaps: RoadmapType[];
   guides: GuideType[];
   videos: VideoType[];
 };
 export default function Home(props: HomeProps) {
-    const { roadmaps, guides, videos } = props;
+  const { roadmaps, guides, videos } = props;
+  const user = useContext(AuthContext);
+  useEffect(() => {
+    if (user) Router.push("/dashboard");
+  }, [user]);
   return (
     <PageWrapper>
       <GlobalHeader variant={"transparent"} />
@@ -59,7 +68,7 @@ export default function Home(props: HomeProps) {
           />
         </Container>
       </Box>
-      <Box  bg="white">
+      <Box bg="white">
         <Container maxW="container.md">
           <Box pt="110px" mb={["10px", "15px", "20px"]}>
             <Heading
