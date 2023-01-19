@@ -5,6 +5,7 @@ import { Global, css } from "@emotion/react";
 import "prism-themes/themes/prism-shades-of-purple.css";
 import "focus-visible/dist/focus-visible";
 import { roadmapTheme } from "../styles/theme";
+import { AuthProvider } from "../provider/AuthProvider";
 
 const GlobalStyles = css`
   /*
@@ -70,8 +71,11 @@ const GlobalStyles = css`
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={roadmapTheme}>
+      // @ts-ignore
       <Global styles={GlobalStyles} />
-      <Component {...pageProps} />
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </ChakraProvider>
   );
 }
