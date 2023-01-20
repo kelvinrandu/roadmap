@@ -34,7 +34,7 @@ export default function Guide(props: GuideProps) {
           }}
           subLink={{
             text: "Improve this Guide",
-            url: `${siteConfig.url.repo}/tree/master/content/guides/${guide.id}.md`,
+            url: `${siteConfig.url.repo}/tree/main/content/guides/${guide.id}.md`,
           }}
         />
         <Container maxW={"container.md"} position="relative">
