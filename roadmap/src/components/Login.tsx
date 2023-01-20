@@ -13,7 +13,7 @@ interface LoginData {
   email: string;
   password: string;
 }
-const Login: React.FC = () => {
+const LoginComponent: React.FC = () => {
   const {
     register,
     handleSubmit,
@@ -92,4 +92,4 @@ const Login: React.FC = () => {
     </Center>
   );
 };
-export default Login;
+export default LoginComponent;
