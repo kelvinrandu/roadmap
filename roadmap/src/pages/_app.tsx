@@ -71,7 +71,7 @@ const GlobalStyles = css`
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={roadmapTheme}>
-      // @ts-ignore
+     
       <Global styles={GlobalStyles} />
       <AuthProvider>
         <Component {...pageProps} />
