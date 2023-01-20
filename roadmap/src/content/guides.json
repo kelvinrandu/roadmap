@@ -1,12 +1,22 @@
 [
   {
-    "id": "session-based-authentication",
-    "title": "Session Based Authentication",
-    "description": "Learn what is Session Based Authentication and how to implement it in Node.js",
-    "isNew": true,
-    "type": "textual",
-    "authorUsername": "kelvinrandu",
-    "updatedAt": "2022-11-01T19:59:14.191Z",
-    "createdAt": "2022-11-01T19:59:14.191Z"
+    "id": "asymptotic-notation",
+    "title": "Asymptotic Notation",
+    "description": "Learn the basics of measuring the time and space complexity of algorithms",
+    "isNew": false,
+    "type": "visual",
+    "authorUsername": "kamranahmedse",
+    "updatedAt": "2021-04-03T15:48:21.191Z",
+    "createdAt": "2021-04-03T15:48:21.191Z"
+  },
+  {
+    "id": "big-o-notation",
+    "title": "Big-O Notation",
+    "description": "Easy to understand explanation of Big-O notation without any fancy terms",
+    "isNew": false,
+    "type": "visual",
+    "authorUsername": "kamranahmedse",
+    "updatedAt": "2021-03-15T15:48:21.191Z",
+    "createdAt": "2021-03-15T15:48:21.191Z"
   }
 ]
