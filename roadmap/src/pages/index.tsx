@@ -30,9 +30,9 @@ type HomeProps = {
 export default function Home(props: HomeProps) {
   const { roadmaps, guides, videos } = props;
   const user = useContext(AuthContext);
-  useEffect(() => {
-    if (user) Router.push("/dashboard");
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) Router.push("/dashboard");
+  // }, [user]);
   return (
     <PageWrapper>
       <GlobalHeader variant={"transparent"} />
