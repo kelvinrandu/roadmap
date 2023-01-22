@@ -9,19 +9,19 @@ type FeaturedRoadmapsListProps = {
 
 export const upcomingRoadmaps = [
   {
-    type: "Role Based",
+    type: "Free courses",
     title: "React Native",
     description: "Step by step guide to become a React Native Developer",
     id: "react-native",
   },
   {
-    type: "Role Based",
+    type: "Free courses",
     title: "Cyber Security",
     description: "Step by step guide to become a Cyber Security Expert",
     id: "cyber-security",
   },
   {
-    type: "Skill Based",
+    type: "Paid courses",
     title: "TypeScript",
     description: "Step by step guide to learn TypeScript in 2022",
     id: "typescript",
