@@ -4,6 +4,8 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 // import "firebase/firestore";
@@ -31,5 +33,12 @@ const auth = getAuth(firebase);
  const Firestore = getFirestore();
 
   
-export { auth,Firestore, signInWithEmailAndPassword, onAuthStateChanged };
+export {
+  auth,
+  Firestore,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithPopup,
+  GoogleAuthProvider,
+};
 export default firebase;
