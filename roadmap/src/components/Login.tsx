@@ -84,7 +84,7 @@ const LoginComponent: React.FC = () => {
         <Box textAlign="center">
           <div className="bg-gray-100">
             <div className="bg-gray-100 container mx-auto px-6 pt-10 pb-6">
-              © codesmithsAfrica. All rights reserved
+              © roadmaps. All rights reserved
             </div>
           </div>
         </Box>
