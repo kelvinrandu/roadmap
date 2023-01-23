@@ -8,7 +8,14 @@ import {
   FormErrorMessage
 } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";
-import { auth, signInWithEmailAndPassword } from "../firebase/index";
+import {
+  auth,
+  signInWithEmailAndPassword,
+} from "../firebase/index";
+import {
+  signInWithGoogle,
+} from "../firebase/authUser";
+
 interface LoginData {
   email: string;
   password: string;
@@ -19,6 +26,7 @@ const LoginComponent: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginData>();
+
   const onSubmit = (data: LoginData) => {
  signInWithEmailAndPassword(auth, data.email, data.password)
    .then((userCredential) => {
@@ -85,6 +93,9 @@ const LoginComponent: React.FC = () => {
           <div className="bg-gray-100">
             <div className="bg-gray-100 container mx-auto px-6 pt-10 pb-6">
               © roadmaps. All rights reserved
+              <button className="button" onClick={signInWithGoogle}>
+                <i className="fab fa-google"></i>Sign in with google
+              </button>
             </div>
           </div>
         </Box>
