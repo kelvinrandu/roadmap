@@ -20,6 +20,7 @@ import {
   Badge,
 } from "@chakra-ui/react";
 import { FiMenu, FiChevronDown } from "react-icons/fi";
+import { signInWithGoogle, emailSignOut } from "../firebase/authUser";
 
 
 interface MobileProps extends FlexProps {
@@ -102,7 +103,7 @@ const MobileNav: React.FC<MobileProps> = ({ onOpen, ...rest }) => {
             >
          
 
-                <Link style={{ textDecoration: "none" }} href="/api/auth/login">
+                <Link style={{ textDecoration: "none" }} onClick={emailSignOut}>
                   <MenuItem>Sign in</MenuItem>
                 </Link>
          

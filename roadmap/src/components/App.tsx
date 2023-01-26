@@ -8,11 +8,13 @@ import {
 } from "@chakra-ui/react";
 import SidebarContent from "../components/SidebarContent";
 import MobileNav from "../components/MobileNav";
+import {LinkItemProps }from "../pages/dashboard"
 type Iprops = {
   children: ReactNode;
+
 };
 
-const App: React.FC<Iprops> = ({ children }) => {
+const App: React.FC<Iprops> = ({  children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
