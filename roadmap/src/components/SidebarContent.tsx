@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState,useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import {
   Box,
   CloseButton,
@@ -15,6 +16,7 @@ import { FaPaperPlane, FaDolly, FaEnvelope } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { ReactText } from "react";
 import { IconType } from "react-icons";
+ import { auth } from "../firebase/index";
 // import Filters from "../components/Filters";
 
 
@@ -35,10 +37,24 @@ const LinkItems: Array<LinkItemProps> = [
   { name: "My subscriptions", path: "/", icon: FaDolly },
 ];
 
+const AdminLinkItems: Array<LinkItemProps> = [
+  { name: "Dashboard", path: "/dashboard", icon: FiHome },
+  { name: "Roadmaps", path: "/", icon: FaEnvelope },
+  { name: "Guides", path: "/", icon: FaPaperPlane },
+  { name: "Authors", path: "/", icon: FaDolly },
+];
+
+
 interface SidebarProps extends BoxProps {
   onClose: () => void;
 }
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const [admin,setAdmin] = useState(false);
+    const user = useContext(AuthContext);
+    auth.currentUser?.getIdTokenResult().then((results) => {
+      setAdmin(results.claims?.admin);
+    });
+    console.log('admin',admin)
   return (
     <Box
       transition="3s ease"
@@ -63,15 +79,32 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
-
-      {LinkItems.map((link) => (
+      {admin ? (
+        <>
+          {" "}
+          {AdminLinkItems.map((link) => (
+            <NavItem key={link.name} path={link.path} icon={link.icon}>
+              {link.name}
+            </NavItem>
+          ))}
+        </>
+      ) : (
+        <>
+          {" "}
+          {LinkItems.map((link) => (
+            <NavItem key={link.name} path={link.path} icon={link.icon}>
+              {link.name}
+            </NavItem>
+          ))}
+        </>
+      )}
+      {/* {LinkItems.map((link) => (
         <NavItem key={link.name} path={link.path} icon={link.icon}>
           {link.name}
         </NavItem>
-      ))}
+      ))} */}
 
       {/* <Filters /> */}
-     
     </Box>
   );
 };

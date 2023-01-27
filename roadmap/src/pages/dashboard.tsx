@@ -4,8 +4,9 @@ import { Text, Flex, Spinner } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { FiHome } from "react-icons/fi";
 import { FaPaperPlane, FaDolly, FaEnvelope } from "react-icons/fa";
-import { auth, signInWithEmailAndPassword } from "../firebase/index";
-import { getAuth } from "firebase/auth";
+import { auth} from "../firebase/index";
+import Router from "next/router";
+
 
 import App from "../components/App";
 export type LinkItemProps = {
@@ -25,8 +26,10 @@ export default function Dashboard() {
   auth.currentUser?.getIdTokenResult().then(results=>{
     console.log(results.claims?.admin)
   })
+      useEffect(() => {
+        if (!user) Router.push("/login");
+      }, [user]);
 
-  // console.log(auth.currentUser?.getIdTokenResult);
   return (
     <App>
       <Text mb={2} fontSize="sm">

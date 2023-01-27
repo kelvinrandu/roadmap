@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   IconButton,
   Icon,
@@ -20,24 +20,26 @@ import {
   Badge,
 } from "@chakra-ui/react";
 import { FiMenu, FiChevronDown } from "react-icons/fi";
-import { signInWithGoogle, emailSignOut } from "../firebase/authUser";
-
+import { emailSignOut } from "../firebase/authUser";
+import { AuthContext } from "../context/AuthContext";
 
 interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 
 const MobileNav: React.FC<MobileProps> = ({ onOpen, ...rest }) => {
-//   const { user, error, isLoading } = useUser();
-//   const user_Id = user ? user.sub : [];
-//   const { data, loading } = useQuery(GET_UNREAD_ORDERS_FOR_ME_QUERY, {
-//     variables: { user_id: user_Id },
-//   });
+  const user = useContext(AuthContext);
+  console.log('user',user)
+  //   const { user, error, isLoading } = useUser();
+  //   const user_Id = user ? user.sub : [];
+  //   const { data, loading } = useQuery(GET_UNREAD_ORDERS_FOR_ME_QUERY, {
+  //     variables: { user_id: user_Id },
+  //   });
 
-//   const allOrders = data ? data.orders : [];
+  //   const allOrders = data ? data.orders : [];
 
-//   if (isLoading) return <div>Loading...</div>;
-//   if (error) return <div>{error.message}</div>;
+  //   if (isLoading) return <div>Loading...</div>;
+  //   if (error) return <div>{error.message}</div>;
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -75,8 +77,7 @@ const MobileNav: React.FC<MobileProps> = ({ onOpen, ...rest }) => {
               _focus={{ boxShadow: "none" }}
             >
               <HStack>
-                  <Avatar size={"sm"} />
-            
+                <Avatar size={"sm"} />
 
                 <VStack
                   display={{ base: "none", md: "flex" }}
@@ -84,9 +85,13 @@ const MobileNav: React.FC<MobileProps> = ({ onOpen, ...rest }) => {
                   spacing="1px"
                   ml="2"
                 >
-        
-                    <Text fontSize="sm">annonymous</Text>
-              
+                  <Text fontSize="sm">
+                    {user?.displayName
+                      ? user?.displayName
+                      : user?.email
+                      ? user?.email
+                      : "annonymous"}
+                  </Text>
 
                   <Text fontSize="xs" color="gray.600">
                     {/* Supplier */}
@@ -101,12 +106,9 @@ const MobileNav: React.FC<MobileProps> = ({ onOpen, ...rest }) => {
               bg={useColorModeValue("white", "gray.900")}
               borderColor={useColorModeValue("gray.200", "gray.700")}
             >
-         
-
-                <Link style={{ textDecoration: "none" }} onClick={emailSignOut}>
-                  <MenuItem>Sign in</MenuItem>
-                </Link>
-         
+              <Link style={{ textDecoration: "none" }} onClick={emailSignOut}>
+                <MenuItem>Sign out</MenuItem>
+              </Link>
             </MenuList>
           </Menu>
         </Flex>
