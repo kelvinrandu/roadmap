@@ -15,6 +15,9 @@ import {
 import {
   signInWithGoogle,
 } from "../firebase/authUser";
+import { IconButton } from "@chakra-ui/react";
+import { Icon } from "@chakra-ui/react";
+
 
 interface LoginData {
   email: string;
