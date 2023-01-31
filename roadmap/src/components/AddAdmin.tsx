@@ -12,7 +12,6 @@ import  firebase  from "../firebase/index";
 import {
   getFunctions,
   httpsCallable,
-  connectFunctionsEmulator,
 } from "firebase/functions";
 interface AdminData {
   email: string;
@@ -31,21 +30,10 @@ export default function AddAdmin() {
            addAdminRole({email:data.email}).then(results =>{
                console.log(results)
            })
-        // signInWithEmailAndPassword(auth, data.email, data.password)
-        //   .then((userCredential) => {
-        //     // Signed in
-        //     const user = userCredential.user;
-        //     console.log(user);
-        //     // ...
-        //   })
-        //   .catch((error) => {
-        //     const errorCode = error.code;
-        //     const errorMessage = error.message;
-        //     console.log(error);
-        //   });
+
       };
   return (
-    <Center height="100vh">
+   
       <Box
         p={8}
         my={"15"}
@@ -92,6 +80,6 @@ export default function AddAdmin() {
           </div>
         </Box>
       </Box>
-    </Center>
+  
   );
 }

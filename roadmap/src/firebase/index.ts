@@ -30,7 +30,7 @@ const firebase = getApps().length === 0
   : getApp();
 
 const auth = getAuth(firebase);
- const Firestore = getFirestore();
+ const Firestore = getFirestore(firebase);
 
   
 export {
