@@ -34,7 +34,23 @@ const AddRoadmap: React.FC<Props> = () => {
   const [isNew, setIsNew] = useState(true);
   const [author, setAuthor] = useState(null);
   const toast = useToast();
-    const onSubmit = handleSubmit((data) => console.log(data));
+    const onSubmit = handleSubmit((data) => {
+      console.log(data);
+          (async () => {
+                    const docRef = await addDoc(collection(Firestore, "cities"), {
+                      name: "Tokyo",
+                      description: "Japan",
+                      id: "Japan",
+                      isNew: false,
+                      title: "Japan",
+                      createdAt: serverTimestamp(),
+                      updatedAt: serverTimestamp(),
+                      author: "yF4urvDV0WkZRb0KGaMN",
+                    });
+                    console.log("Document written with ID: ", docRef.id);
+
+          })();
+    });
   // const onCreateItem = (
   //   { name, price, amount, category_id, user_id }
   // ) => {
@@ -76,55 +92,52 @@ const AddRoadmap: React.FC<Props> = () => {
         <Input
           autoFocus
           placeholder="Name"
-          onChange={(e) => setName(e.target.value)}
+          {...register("name", { required: true })}
           variant="filled"
-          value={name}
           type="text"
         />
       </FormControl>
       <FormControl isRequired mt={6}>
-        <FormLabel>Price</FormLabel>
+        <FormLabel>Description</FormLabel>
         <Input
           autoFocus
           variant="filled"
           // name=""
+
           placeholder="price"
-          
-          value={description}
           {...register("description", { required: true })}
           type="text"
         />
       </FormControl>
 
       <FormControl isRequired mt={6}>
-        <FormLabel>Amount</FormLabel>
+        <FormLabel>Title</FormLabel>
         <Input
           variant="filled"
-          value={title}
           {...register("title", { required: true })}
           placeholder="Amount"
           type="text"
         />
       </FormControl>
       <FormControl isRequired mt={6}>
-        <FormLabel>Amount</FormLabel>
+        <FormLabel>Id</FormLabel>
         <Input
           variant="filled"
-          value={id}
           {...register("id", { required: true })}
           placeholder="Amount"
-          type="number"
+          type="text"
         />
       </FormControl>
       <FormControl isRequired mt={6}>
-        <FormLabel>Amount</FormLabel>
+        <FormLabel>IsNew</FormLabel>
         <Checkbox
           isChecked={isNew}
-          {...register("isNew", { required: true })}
+          {...register("isNew", { required: false })}
           onChange={(e) => setIsNew(e.target.checked)}
         >
           {" "}
-          Parent Checkbox
+          Isnew
+          
         </Checkbox>
       </FormControl>
 
