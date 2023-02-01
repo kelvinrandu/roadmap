@@ -37,14 +37,8 @@ const AddRoadmap: React.FC<Props> = () => {
   const initialRef = useRef();
 
   const { handleSubmit, register } = useForm<FormValues>();
-  const [orders, setOrders] = useState<QueryDocumentSnapshot<DocumentData>[]>(
-    []
-  );
   const [loading, setLoading] = useState<boolean>(true);
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [title, setTitle] = useState("");
-  const [id, setId] = useState("");
   const [isNew, setIsNew] = useState(true);
   const [authors, setAuthors] = useState<any[]>([]);
   const toast = useToast();
