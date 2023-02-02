@@ -151,10 +151,7 @@ const AddGuide: React.FC<Props> = () => {
             </Button>
           </form>
 
-          <Text color="gray.500" fontSize="12px" mt="10px">
-            <Text as="span">Once a month email</Text> about the changes to
-            roadmaps, new roadmaps, free guides and videos.
-          </Text>
+    
         </Box>
       </Box>
     </>

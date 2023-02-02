@@ -10,6 +10,7 @@ import {
   Button,
   Flex,
   Box,
+  Textarea,
   Heading,
   Text,
   Checkbox,
@@ -34,7 +35,7 @@ type FormValues = {
 const AddAuthor: React.FC<Props> = () => {
   const initialRef = useRef();
 
-  const { handleSubmit, register } = useForm<FormValues>();
+  const { handleSubmit, register,reset } = useForm<FormValues>();
   const [loading, setLoading] = useState<boolean>(true);
 
 
@@ -43,7 +44,7 @@ const AddAuthor: React.FC<Props> = () => {
 
   const onSubmit = handleSubmit((data) => {
     (async () => {
-      const docRef = await addDoc(collection(Firestore, "guides"), {
+      const docRef = await addDoc(collection(Firestore, "authors"), {
         name: data.name,
         username: data.username,
         twitter: data.twitter,
@@ -53,6 +54,15 @@ const AddAuthor: React.FC<Props> = () => {
         picture: "",
       });
       console.log("Document written with ID: ", docRef.id);
+             reset();
+            toast({
+              title: "Author created",
+              description: "We've created your author for you.",
+              status: "success",
+              position: "top",
+              duration: 3000,
+              isClosable: true,
+            });
     })();
   });
 
@@ -68,7 +78,7 @@ const AddAuthor: React.FC<Props> = () => {
             Add Author
           </Heading>
           <Text mb="14px" fontSize="14px" lineHeight="20px">
-            Enter details below to add new roadmap
+            Enter details below to add new author
           </Text>
 
           <form onSubmit={onSubmit}>
@@ -110,19 +120,13 @@ const AddAuthor: React.FC<Props> = () => {
               mb={"10px"}
               type="text"
             />
-            <Input
-              // variant="filled"
-              {...register("bio", { required: true })}
-              placeholder="bio"
-              size="sm"
-              fontSize="15px"
-              py="18px"
-              rounded="4px"
-              borderWidth={2}
+
+            <Textarea
               mb={"10px"}
-              type="text"
+              {...register("bio", { required: true })}
+              placeholder="bio lies here"
             />
- 
+
             <Button
               type={"submit"}
               bg="gray.700"
@@ -131,14 +135,10 @@ const AddAuthor: React.FC<Props> = () => {
               color={"white"}
               w="100%"
             >
-              Add Roadmap
+              Add Author
             </Button>
           </form>
-
-          <Text color="gray.500" fontSize="12px" mt="10px">
-            <Text as="span">Once a month email</Text> about the changes to
-            roadmaps, new roadmaps, free guides and videos.
-          </Text>
+       
         </Box>
       </Box>
     </>
