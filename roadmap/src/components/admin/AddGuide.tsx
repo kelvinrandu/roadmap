@@ -2,13 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 
 import {
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
+  
   Input,
   Select,
+  Textarea ,
   Button,
-  Flex,
   Box,
   Heading,
   Text,
@@ -108,19 +106,7 @@ const AddGuide: React.FC<Props> = () => {
               mb={"10px"}
               type="text"
             />
-            <Input
-              autoFocus
-              // variant="filled"
-              size="sm"
-              fontSize="15px"
-              py="18px"
-              rounded="4px"
-              borderWidth={2}
-              mb={"10px"}
-              placeholder="description"
-              {...register("description", { required: true })}
-              type="text"
-            />
+          
 
             <Select
               {...register("author", { required: true })}
@@ -152,6 +138,7 @@ const AddGuide: React.FC<Props> = () => {
               {" "}
               Isnew
             </Checkbox>
+            <Textarea mb={"10px"}  {...register("description", { required: true })} placeholder="description lies here" />
             <Button
               type={"submit"}
               bg="gray.700"
@@ -160,7 +147,7 @@ const AddGuide: React.FC<Props> = () => {
               color={"white"}
               w="100%"
             >
-              Add Roadmap
+              Add Guide
             </Button>
           </form>
 
