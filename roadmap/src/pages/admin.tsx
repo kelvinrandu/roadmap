@@ -4,7 +4,7 @@ import { Text, Flex, Spinner } from "@chakra-ui/react";
 import App from "../components/App";
 import AddAdmin from "../components/AddAdmin";
 import AddRoadmap from "../components/admin/AddRoadmap"
-
+import AddGuide from "@/components/admin/AddGuide";
 export default function Admin() {
   return (
     <App>
@@ -15,7 +15,8 @@ export default function Admin() {
 
       <Text>no items</Text>
       {/* <AddAdmin/> */}
-      <AddRoadmap/>
+      {/* <AddRoadmap/> */}
+      <AddGuide/>
 
       <Flex justify="flex-end" as="i" color="gray.500">
         {`Showing 0 out of all items `}

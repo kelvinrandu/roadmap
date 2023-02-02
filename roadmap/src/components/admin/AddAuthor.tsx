@@ -59,6 +59,7 @@ const AddAuthor: React.FC<Props> = () => {
   const flushInputs = () => {
     
   };
+
   return (
     <>
       <Box p="20px" rounded="5px" borderWidth={2}>
